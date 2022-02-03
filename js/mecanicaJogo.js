@@ -37,8 +37,8 @@ Extras:
 var inputNewWord = document.querySelector('#newWord');
 var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
-var secretWords = ['ABACAXI','CADERNO','GARRAFA','MOCHILA','ACADEMIA','GUITARRA','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR',
-                    'GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR']
+var fontSize = 200;
+var secretWords = ['ABACAXI','CADERNO','GATO','MOCHILA','ACADEMIA','PRATO','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR','GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR','PIO','PRESIDENTE','AGUA']
 var gameArea = document.querySelector('#gameArea');
 var giz = gameArea.getContext('2d');
 btnAddNewWord.addEventListener('click', function addNewWord(){
@@ -55,6 +55,7 @@ startGame.addEventListener('click', function newGame (){
     // desenhando campo do jogo               
     var word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);
+    console.log(word);
 })   
 
 
@@ -66,22 +67,26 @@ function genRandomWord ()
 
 function drawWordGaps (word)
 {
-    var y = 600;
-    var x = 200;
+    var y = 120;
+    var x = 10;
+    
     var lineSize = 60;
     var gap = 20;
-    giz.strokeStyle='white';
-
+    giz.strokeStyle ='white';
+    giz.lineWidth = 3;
+    
+    giz.clearRect(0,0,gameArea.width,gameArea.height);
     for(var i = 0; i<word.length; i++)
     {
+        
         giz.beginPath(); //começa um caminho, outra forma dentro desse contexto desse canvas
         giz.moveTo(x,y);//estabelece o ponto de início
-        giz.lineTo(x+lineSize,y);//faz linha
-        giz.closePath();
+        giz.lineTo((x+lineSize),y);//faz linha
         giz.stroke();//preenche o último path iniciado
         x += (lineSize+gap);
+        giz.closePath(); //começa um caminho, outra forma dentro desse contexto desse canvas
     }
-	
+
 }
 
 function validateKey ()
