@@ -8,27 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--
-        HEADER - TITULO 
-        MAIN
-            SECTION - btnIniciar btnAdicionar inputNovaPalavra
-            SECTION - CANVAS, DEMAIS ELEMENTOS DO JOGO.
-        FOOTER - INFORMAÇÕES DO DEV
-    -->
     <header>
         <h1></h1>
     </header>
     <main>
-        <section>
+        <section id='gameStart'>
             <p></p>
-            <input type="button" value="Iniciar Jogo">
-            <input type="text" name="novaPalavra" id="novaPalavra" placeholder="Digite uma nova palavra para adicionar ao jogo">
-            <input type="button" value="Adicionar Palavra">
+            <input type="button" value="Iniciar Jogo" id='begin'>
+            <input type="text" name="newWord" id="newWord" placeholder="Digite uma nova palavra para adicionar ao jogo">
+            <input type="button" value="Adicionar Palavra" id='addWord'>
         </section>
         <section>
-            <canvas>
-
-            </canvas>
+            <canvas id='gameArea'></canvas>
         </section>
     </main>
     <footer>

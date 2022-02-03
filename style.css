@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@300&family=Turret+Road:wght@700&display=swap');
+
+:root{
+    --fonteCanvas: 'Walter Turncoat', cursive;
+}
+canvas{
+    min-width:900px;
+    max-width:1200px;
+    min-height:500px;
+    max-height:800px;
+    background-color: #497959;
+    font-family: var(--fonteCanvas);
+    font-size: 3em;
+}
