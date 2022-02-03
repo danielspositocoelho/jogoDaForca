@@ -18,9 +18,9 @@
             <input type="text" name="newWord" id="newWord" placeholder="Digite uma nova palavra para adicionar ao jogo">
             <input type="button" value="Adicionar Palavra" id='addWord'>
         </section>
-        <section>
+        <div>
             <canvas id='gameArea' width='1200' height='800'></canvas>  <!--É necessario estabelecer o height e width fora do css, pois o css lida somente com o display. Para maniular os valores x y a referencia é do canvas.width e canvas.height-->
-        </section>
+        </div>
     </main>
     <footer>
         <p>
@@ -29,5 +29,6 @@
         </p>
     </footer>
     <script src="js/mecanicaJogo.js"></script>
+    <script src="js/canvas.js"></script>
 </body>
 </html>

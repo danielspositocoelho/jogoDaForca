@@ -37,27 +37,35 @@ Extras:
 var inputNewWord = document.querySelector('#newWord');
 var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
+
+var points = 0;
 var fontSize = 200;
-var secretWords = ['ABACAXI','CADERNO','GATO','MOCHILA','ACADEMIA','PRATO','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR','GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR','PIO','PRESIDENTE','AGUA']
+var secretWords = ['ABACAXI','CADERNO','GATO','MOCHILA','ACADEMIA','PRATO','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR','GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR','PIO','PRESIDENTE','AGUA','CADEIRA','SURDO','PALAVRA','SAUDADE','PORTA','FOLGA','COPO','VOO','FIO','HIDROMASSAGEM', 'CAÇA', 'CAÇADOR']
 var gameArea = document.querySelector('#gameArea');
 var giz = gameArea.getContext('2d');
 btnAddNewWord.addEventListener('click', function addNewWord(){
 
 })
+
 function validateNewWord ()
 {
 
 }                    
 
 startGame.addEventListener('click', function newGame (){
-    // checa se o jogo acabou ?
-    // reset
-    // desenhando campo do jogo               
+    points = 0; // reset            
     var word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);
     console.log(word);
-})   
+    document.addEventListener('keypress', function(e){
+    isEnd(word);// checa se o jogo acabou ?
 
+        if (validateKey(e.key))
+        {
+            checkGuess(e.key, word);
+        }
+    })
+})   
 
 function genRandomWord ()
 {
@@ -65,63 +73,48 @@ function genRandomWord ()
     return secretWords[randomIndex];
 }
 
-function drawWordGaps (word)
+function validateKey (input)
 {
-    var y = 120;
-    var x = 10;
-    
-    var lineSize = 60;
-    var gap = 20;
-    giz.strokeStyle ='white';
-    giz.lineWidth = 3;
-    
-    giz.clearRect(0,0,gameArea.width,gameArea.height);
-    for(var i = 0; i<word.length; i++)
+    if (isNaN(input)) // se não for número pode ser letra
     {
-        
-        giz.beginPath(); //começa um caminho, outra forma dentro desse contexto desse canvas
-        giz.moveTo(x,y);//estabelece o ponto de início
-        giz.lineTo((x+lineSize),y);//faz linha
-        giz.stroke();//preenche o último path iniciado
-        x += (lineSize+gap);
-        giz.closePath(); //começa um caminho, outra forma dentro desse contexto desse canvas
+        if(input.toLowerCase() != input.toUpperCase()) //se houver diferença entre maisculo e minisculo é letra
+        {
+            return true;
+        }
+        else
+        return false;
+    }else
+        return false;
+}
+
+function checkGuess (input, word)
+{
+    var key = input.toUpperCase();
+    var rightGuess = false;
+    for (var i = 0; i < word.length; i++)
+    {
+        if (key == word[i])
+        {
+            rightGuess = true;
+            points++;
+            revealLetter(key,word);
+        }
     }
 
+    if (rightGuess == false)
+    {
+        markMistake(key);
+    }
 }
 
-function validateKey ()
+function isEnd (word)
 {
-
+    if (points == word.length)
+        return true;
+    else
+        return false;
 }
 
-function checkGuess ()
-{
 
-}
-
-function scoresPoints ()
-{
-
-}
-
-function drawHangman ()
-{
-
-}
-
-function isEnd ()
-{
-
-}
-
-function popWinMsg ()
-{
-
-}
-
-function popLossMsg ()
-{
-
-}
 
 

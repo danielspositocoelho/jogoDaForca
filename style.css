@@ -4,9 +4,9 @@
     --fonteCanvas: 'Walter Turncoat', cursive;
 }
 canvas{
-    max-width:1200px;
-    max-height:800px;
+    width:90vw;
+    height:80vh;
     background-color: #497959;
     font-family: var(--fonteCanvas);
-    font-size: 3em;
+    font-size: 50px;
 }
