@@ -3,10 +3,11 @@ const initialX = (10*gameArea.width)/100;
 const LINEWIDTH = 3;
 const LINEGAPS = 20;
 const lineSize = 60;
-const FONTSIZE = 100;
+const FONTWIDTH = 50;
 const textMarginBottom = 10;  
-giz.fillStyle = 'white';
-giz.font = '50px cursive';
+const ERROR_FONT = 'monospace';
+const POINT_FONT = 'cursive';
+
 
 function drawWordGaps (word)
 {
@@ -35,6 +36,8 @@ function drawHangman ()
 
 function revealLetter (letter,word)
 {
+    giz.fillStyle = 'rgba(230, 230, 230, 0.747)';
+    giz.font = `${FONTWIDTH}px ${POINT_FONT}`;
     var x = initialX;
     for(var i = 0; i<word.length; i++)
     {
@@ -46,13 +49,26 @@ function revealLetter (letter,word)
     }
 }
 
+//FUNÇÃO QUE CONSTRÓI LISTA DE ERROS
+var newLine = 0;
+var lineLimit = 5;    // número máximo de erros que cabem em linha na área reservada
+var errorsInLine = 1; // SE A FUNÇÃO FOR CHAMADA É PORQUE JÁ HÁ UM ERRO
 function markMistake(wrongLetter)
-{
-    var x = (3*gameArea.width/4);
-    var y = (gameArea.height/2);
-    var gap = mistakes*10;
+{    
+    giz.fillStyle ='rgba(255, 15, 15, 0.808)';
+    giz.font = `${FONTWIDTH}px ${ERROR_FONT}`;
+    var y = (gameArea.height/2)+newLine; //linhas começam na metade da altura do canvas, descem a cada 5 erros na linha
+    var gap = errorsInLine*FONTWIDTH;   
+    var x = (3*gameArea.width/4)+gap;    //letras aparecem em 3/4 da largura do canvas, movendo um espaço de letra a cada erro já registrado e voltando ao 0 quando completa a linha (5 erros)
 
-    giz.fillText(wrongLetter, x+gap, y+gap);
+    if (mistakes.length>=lineLimit) 
+    {
+        newLine+=50;
+        lineLimit = lineLimit*2;
+        errorsInLine = 0;
+    }
+    giz.fillText(wrongLetter, x, y);
+    errorsInLine++;
 }
 
 function popWinMsg ()

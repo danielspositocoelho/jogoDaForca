@@ -39,6 +39,7 @@ var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
 
 var points = 0;
+var mistakes = [];
 var fontSize = 200;
 var secretWords = ['ABACAXI','CADERNO','GATO','MOCHILA','ACADEMIA','PRATO','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR','GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR','PIO','PRESIDENTE','AGUA','CADEIRA','SURDO','PALAVRA','SAUDADE','PORTA','FOLGA','COPO','VOO','FIO','HIDROMASSAGEM', 'CAÇA', 'CAÇADOR']
 var gameArea = document.querySelector('#gameArea');
@@ -103,7 +104,20 @@ function checkGuess (input, word)
 
     if (rightGuess == false)
     {
-        markMistake(key);
+        var difMistake = true;
+
+        for (var i = 0; i < mistakes.length; i++)
+        {
+            if(key==mistakes[i])
+            {
+                difMistake = false;
+            }
+        }
+        if(difMistake)
+        {
+            mistakes.push(key);
+            markMistake(key);
+        }
     }
 }
 
