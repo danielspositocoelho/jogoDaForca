@@ -34,16 +34,32 @@ Extras:
 7B - adiciona próximo traço ao desenho
 
 */
+
 var inputNewWord = document.querySelector('#newWord');
 var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
 
+var gameOver = 6; // seis erros acaba o jogo
 var points = 0;
 var mistakes = [];
 var fontSize = 200;
 var secretWords = ['ABACAXI','CADERNO','GATO','MOCHILA','ACADEMIA','PRATO','TATUAGEM','CARRO','GASOLINA','CELULAR','COMPUTADOR','GADO','ARO','PILULA','OUVIDOR','ALFAIATE','EQUILIBRISTA','EXTENSOR','PIO','PRESIDENTE','AGUA','CADEIRA','SURDO','PALAVRA','SAUDADE','PORTA','FOLGA','COPO','VOO','FIO','HIDROMASSAGEM', 'CAÇA', 'CAÇADOR']
 var gameArea = document.querySelector('#gameArea');
+gameArea.width = 1200;
+gameArea.height = 800;
 var giz = gameArea.getContext('2d');
+
+gameArea.addEventListener('dblclick', function coordenadas (event){
+    const rect = gameArea.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    console.log("x: " + x + " y: " + y);
+
+    giz.beginPath();
+    giz.arc(x,y,5,0,2*3.14);
+    giz.fill();
+});
+
 btnAddNewWord.addEventListener('click', function addNewWord(){
 
 })
@@ -90,33 +106,34 @@ function validateKey (input)
 
 function checkGuess (input, word)
 {
-    var key = input.toUpperCase();
-    var rightGuess = false;
+    var key = input.toUpperCase(); // todas as letras serão maiúsculas por padrão
+    var rightGuess = false; // assumimos que a tentativa é falsa
     for (var i = 0; i < word.length; i++)
     {
-        if (key == word[i])
+        if (key == word[i])  // procuramos na palavra atual as ocorrências da tentativa
         {
-            rightGuess = true;
+            rightGuess = true;  // toda vez que encontramos dizemos que a tentativa é verdadeira e revelamos a letra
             points++;
             revealLetter(key,word);
         }
     }
 
-    if (rightGuess == false)
+    if (rightGuess == false) //caso a tentativa continue falsa é pq não foi encontrada a letra na palavra
     {
-        var difMistake = true;
+        var difMistake = true;  //assumimos que o erro é novo
 
-        for (var i = 0; i < mistakes.length; i++)
+        for (var i = 0; i < mistakes.length; i++) // checamos se o erro já foi feito anteriormente
         {
             if(key==mistakes[i])
             {
                 difMistake = false;
             }
         }
-        if(difMistake)
+        if(difMistake) // se o erro é novo adicionamos na lista e desenhamos a próxima parte da forca
         {
             mistakes.push(key);
             markMistake(key);
+            drawHangman();
         }
     }
 }

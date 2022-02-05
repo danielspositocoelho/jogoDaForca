@@ -29,10 +29,7 @@ function drawWordGaps (word)
 
 }
 
-function drawHangman ()
-{
 
-}
 
 function revealLetter (letter,word)
 {
