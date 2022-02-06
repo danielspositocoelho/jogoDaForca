@@ -22,8 +22,6 @@ function validateNewWord (newWord)
 function genRandomWord ()
 {
     var randomIndex = Math.floor(Math.random()*(words.length-1));
-    
-    console.log(`${words[randomIndex]} random`);
     return words[randomIndex];
 }
 
@@ -46,7 +44,6 @@ function checkGuess (input, word)
     var key = input.toUpperCase(); // todas as letras serão maiúsculas por padrão
     var rightGuess = false;
     var difKey = true;  //assumimos que a letra é nova
-    console.log(`${word} checkguess`);
         for (var i = 0; i < tries.length; i++) // checamos se a letra já foi digitada nessa rodada
         {
             if(key==tries[i])
@@ -79,12 +76,10 @@ function continueGame (word)
 {
     console.log(`${word} continueGame`);
     if (points.length == word.length){
-        console.log(points.length+" "+mistakes.length)
         popWinMsg();
         return false;
     }
     else if (mistakes.length == MAXERRORS){
-        console.log(points.length+" "+mistakes.length)
         popLossMsg();
         return false;
     }else
@@ -98,11 +93,8 @@ startGame.addEventListener('click', function newGame (){
     tries.length = 0;
     guess.value = '';
     word = genRandomWord(); // gerando palavra secreta aleatória
-    console.log(`${word} newGame`);
     drawWordGaps(word);
-    console.log(word);
-    guess.addEventListener('keypress', function(e){
-
+    guess.addEventListener('keydown', function(e){
         if (validateKey(e.key))
         {  
             checkGuess(e.key, word);
@@ -130,7 +122,6 @@ btnAddNewWord.addEventListener('click', function addNewWord(){
         newWord = newWord.toUpperCase();
         words.push(newWord);
     }
-    console.log(words);
 })
 
 

@@ -26,15 +26,12 @@ function drawWordGaps (word)
         x += (lineSize+LINEGAPS);
         giz.closePath(); //começa um caminho, outra forma dentro desse contexto desse gameArea
     }
-
 }
 
 
 
 function revealLetter (letter,word)
 {
-    
-    console.log(`${word} revealLetter`);
     giz.fillStyle = 'rgba(230, 230, 230, 0.747)';
     giz.font = `${FONTWIDTH}px ${POINT_FONT}`;
     var x = initialX;
@@ -82,4 +79,6 @@ function popLossMsg ()
     console.log('ok');
     giz.fillStyle = 'red';
     giz.fillText('Não foi dessa vez.', gameArea.width/2, gameArea.height/4);
+    giz.fillStyle = 'blue';
+    giz.fillText(`A palavra era '${word}'`, gameArea.width/2, (gameArea.height/4)+50);
 }

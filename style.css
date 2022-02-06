@@ -1,16 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@300&family=Turret+Road:wght@700&display=swap');
 
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
 :root{
-    --fonteCanvas: 'Walter Turncoat', cursive;
+    --fonteCanvas: 'Walter Turncoat';
+}
+
+header > h1{
+    font-family: var(--fonteCanvas);
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(39, 38, 38);
+    color: white;
+}
+#canvas{
+    text-align: center;
+    margin-top: 3em;
 }
 canvas{
-    width:75vw;
+    width:65vw;
     height:60vh;
     background-color: #497959;
     font-family: var(--fonteCanvas);
     font-size: 50px;
-    margin: auto;
+    border: ridge 10px rgb(204, 109, 21)
 }
 #guess{
     width:20px;
+}
+#addWord{
+    
 }

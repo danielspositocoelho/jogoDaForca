@@ -9,17 +9,21 @@
 </head>
 <body>
     <header>
-        <h1></h1>
+        <h1>Jogo da Forca</h1>
     </header>
     <main>
         <section id='gameStart'>
             <p></p>
-            <input type="button" value="Iniciar Jogo" id='begin'>
-            <input type="text" name="newWord" id="newWord" placeholder="Adicione uma nova palavra ">
-            <input type="button" value="Adicionar Palavra" id='addWord'>
-            <label for="guessInput">Digite seu palpite:  </label><input type="text" name="guess" id="guess"></label>
+            <div>
+                <input type="button" value="Iniciar Jogo" id='begin'>
+                <label for="guessInput">Digite seu palpite:  </label><input type="text" name="guess" id="guess" maxlength="1"></label>
+            </div>
+            <div id="addWord">    
+                <input type="text" name="newWord" id="newWord" placeholder="Adicione uma nova palavra "> <br>
+                <input type="button" value="Adicionar Palavra" id='addWord'>
+            </div>
         </section>
-        <div>
+        <div id="canvas">
             <canvas id='gameArea' width='1200' height='800'></canvas>  <!--É necessario estabelecer o height e width fora do css, pois o css lida somente com o display. Para maniular os valores x y a referencia é do canvas.width e canvas.height-->
         </div>
     </main>
