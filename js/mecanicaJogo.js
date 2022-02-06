@@ -90,6 +90,7 @@ startGame.addEventListener('click', function newGame (){
     points.length = 0; // reset            
     mistakes.length = 0;
     tries.length = 0;
+    guess.disabled = false;
     guess.value = '';
     word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);

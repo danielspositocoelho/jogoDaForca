@@ -71,6 +71,7 @@ function popWinMsg ()
 {
     giz.fillStyle = 'blue';
     giz.fillText('Você venceu. Parabéns!', gameArea.width/2, gameArea.height/4);
+    guess.disabled = true;
 }
 
 function popLossMsg ()
@@ -79,4 +80,5 @@ function popLossMsg ()
     giz.fillText('Não foi dessa vez.', gameArea.width/2, gameArea.height/4);
     giz.fillStyle = 'blue';
     giz.fillText(`A palavra era '${word}'`, (gameArea.width/2)-50, (gameArea.height/4)+50);
+    guess.disabled = true;
 }
