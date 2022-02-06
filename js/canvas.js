@@ -69,16 +69,14 @@ function markMistake(wrongLetter)
 
 function popWinMsg ()
 {
-    console.log('ok');
     giz.fillStyle = 'blue';
     giz.fillText('Você venceu. Parabéns!', gameArea.width/2, gameArea.height/4);
 }
 
 function popLossMsg ()
 {
-    console.log('ok');
     giz.fillStyle = 'red';
     giz.fillText('Não foi dessa vez.', gameArea.width/2, gameArea.height/4);
     giz.fillStyle = 'blue';
-    giz.fillText(`A palavra era '${word}'`, gameArea.width/2, (gameArea.height/4)+50);
+    giz.fillText(`A palavra era '${word}'`, (gameArea.width/2)-50, (gameArea.height/4)+50);
 }

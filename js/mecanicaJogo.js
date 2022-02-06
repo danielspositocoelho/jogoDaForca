@@ -74,7 +74,6 @@ function checkGuess (input, word)
 
 function continueGame (word)
 {
-    console.log(`${word} continueGame`);
     if (points.length == word.length){
         popWinMsg();
         return false;
@@ -94,10 +93,12 @@ startGame.addEventListener('click', function newGame (){
     guess.value = '';
     word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);
-    guess.addEventListener('keydown', function(e){
-        if (validateKey(e.key))
+    guess.addEventListener('textInput', function(e){
+        let key = e.data;
+        
+        if (validateKey(key))
         {  
-            checkGuess(e.key, word);
+            checkGuess(key, word);
         } //se não for valido não fazemos nada com o input
     guess.value = '';
     continueGame(word); // checando o fim do jogo  depois de ler a letra, caso já estiver acabado, não lemos o palpite, caso já tenha acabado, não aguardamos outro input
