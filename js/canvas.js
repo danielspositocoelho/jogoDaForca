@@ -19,12 +19,12 @@ function drawWordGaps (word)
     for(var i = 0; i<word.length; i++)
     {
         
-        giz.beginPath(); //começa um caminho, outra forma dentro desse contexto desse canvas
+        giz.beginPath(); //começa um caminho, outra forma dentro desse contexto desse gameArea
         giz.moveTo(x,initialY);//estabelece o ponto de início
         giz.lineTo((x+lineSize),initialY);//faz linha
         giz.stroke();//preenche o último path iniciado
         x += (lineSize+LINEGAPS);
-        giz.closePath(); //começa um caminho, outra forma dentro desse contexto desse canvas
+        giz.closePath(); //começa um caminho, outra forma dentro desse contexto desse gameArea
     }
 
 }
@@ -33,6 +33,8 @@ function drawWordGaps (word)
 
 function revealLetter (letter,word)
 {
+    
+    console.log(`${word} revealLetter`);
     giz.fillStyle = 'rgba(230, 230, 230, 0.747)';
     giz.font = `${FONTWIDTH}px ${POINT_FONT}`;
     var x = initialX;
@@ -54,9 +56,9 @@ function markMistake(wrongLetter)
 {    
     giz.fillStyle ='rgba(255, 15, 15, 0.808)';
     giz.font = `${FONTWIDTH}px ${ERROR_FONT}`;
-    var y = (gameArea.height/2)+newLine; //linhas começam na metade da altura do canvas, descem a cada 5 erros na linha
+    var y = (gameArea.height/2)+newLine; //linhas começam na metade da altura do gameArea, descem a cada 5 erros na linha
     var gap = errorsInLine*FONTWIDTH;   
-    var x = (3*gameArea.width/4)+gap;    //letras aparecem em 3/4 da largura do canvas, movendo um espaço de letra a cada erro já registrado e voltando ao 0 quando completa a linha (5 erros)
+    var x = (3*gameArea.width/4)+gap;    //letras aparecem em 3/4 da largura do gameArea, movendo um espaço de letra a cada erro já registrado e voltando ao 0 quando completa a linha (5 erros)
 
     if (mistakes.length>=lineLimit) 
     {
@@ -70,10 +72,14 @@ function markMistake(wrongLetter)
 
 function popWinMsg ()
 {
-
+    console.log('ok');
+    giz.fillStyle = 'blue';
+    giz.fillText('Você venceu. Parabéns!', gameArea.width/2, gameArea.height/4);
 }
 
 function popLossMsg ()
 {
-
+    console.log('ok');
+    giz.fillStyle = 'red';
+    giz.fillText('Não foi dessa vez.', gameArea.width/2, gameArea.height/4);
 }

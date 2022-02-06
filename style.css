@@ -4,11 +4,13 @@
     --fonteCanvas: 'Walter Turncoat', cursive;
 }
 canvas{
-   /*width:90vw;
-    height:80vh;*/
-    width:1200px;
-    height:800px;
+    width:75vw;
+    height:60vh;
     background-color: #497959;
     font-family: var(--fonteCanvas);
     font-size: 50px;
+    margin: auto;
+}
+#guess{
+    width:20px;
 }

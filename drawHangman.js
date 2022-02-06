@@ -1,5 +1,5 @@
 const hangmanColor = 'white';
-const raioCabeça = '25';
+const headRadius = '25';
 function drawHangman (){
     
     giz.strokeStyle = `${hangmanColor}`;
@@ -44,7 +44,7 @@ function drawHanger()
 function drawHead()
 {
     giz.beginPath();
-    giz.arc(400, 275, raioCabeça, 0 , 2*Math.PI);
+    giz.arc(400, 275, headRadius, 0 , 2*Math.PI);
     giz.stroke();
 }
 
@@ -92,27 +92,3 @@ function drawRightArm()
     giz.closePath();
     giz.stroke();
 }
-/*base erro 1
-113, 584
-169, 579
-136, 546
-112, 582
-
-hastes erro 1
-x: 134.0078125 y: 546.625
-x: 143.5 y: 174
-x: 431.0078125 y: 167.625
-x: 431.0078125 y: 240.625
-
-membros erro 2 3 4 5 6 7
-x: 430.0078125 y: 264.625
-x: 428.0078125 y: 293.625
-x: 430.0078125 y: 359.625
-x: 493.0078125 y: 306.625
-x: 427.0078125 y: 357.625
-x: 359.0078125 y: 308.625
-x: 430.0078125 y: 354.625
-x: 431.0078125 y: 429.625
-x: 476.0078125 y: 471.625
-x: 430.0078125 y: 428.625
-x: 376.0078125 y: 471.625 */
