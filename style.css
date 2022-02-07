@@ -14,26 +14,32 @@ header > h1{
     font-size: 3em;
     text-align: center;
 }
-
+header{
+    margin-bottom: 50px;
+}
 body{
     background-color: rgb(39, 38, 38);
     color: white;
 }
-#canvas{
-    text-align: center;
-    margin-top: 3em;
+main{
+    display: flex;
+    justify-content: space-around;
 }
+
 canvas{
     width:65vw;
     height:60vh;
     background-color: #497959;
     font-family: var(--fonteCanvas);
     font-size: 50px;
-    border: ridge 10px rgb(204, 109, 21)
+    border: ridge 10px rgb(204, 109, 21);
 }
 #guess{
-    width:20px;
+    margin: 10px;
+    width:30px;
+    background-color: white;
 }
-#addWord{
-    
+div#addWord > input{
+    width:14em;
+    margin: 10px;
 }

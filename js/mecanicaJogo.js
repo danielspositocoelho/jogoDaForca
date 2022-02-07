@@ -95,11 +95,10 @@ startGame.addEventListener('click', function newGame (){
     word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);
     guess.addEventListener('textInput', function(e){
-        let key = e.data;
-        
-        if (validateKey(key))
+
+        if (validateKey(e.data))
         {  
-            checkGuess(key, word);
+            checkGuess(e.data, word);
         } //se não for valido não fazemos nada com o input
     guess.value = '';
     continueGame(word); // checando o fim do jogo  depois de ler a letra, caso já estiver acabado, não lemos o palpite, caso já tenha acabado, não aguardamos outro input
