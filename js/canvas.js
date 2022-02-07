@@ -6,7 +6,7 @@ const lineSize = 60;
 const FONTWIDTH = 50;
 const textMarginBottom = 10;  
 const ERROR_FONT = 'monospace';
-const POINT_FONT = 'cursive';
+const POINT_FONT = 'Walter Turncoat';
 
 
 function drawWordGaps (word)
@@ -32,7 +32,7 @@ function drawWordGaps (word)
 
 function revealLetter (letter,word)
 {
-    giz.fillStyle = 'rgba(230, 230, 230, 0.747)';
+    giz.fillStyle = 'white';
     giz.font = `${FONTWIDTH}px ${POINT_FONT}`;
     var x = initialX;
     for(var i = 0; i<word.length; i++)

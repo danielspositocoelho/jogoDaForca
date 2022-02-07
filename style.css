@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@300&family=Turret+Road:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 @media only screen and (max-width:700px) {
     .container{
         display: flex;
@@ -14,7 +13,6 @@
         width:90vw;
         height:40vh;
         background-color: #497959;
-        font-family: var(--fonteCanvas);
         border: ridge 10px rgb(204, 109, 21);
     }
 
@@ -50,7 +48,6 @@
         width:65vw;
         height:50vh;
         background-color: #497959;
-        font-family: var(--fonteCanvas);
         border: ridge 10px rgb(204, 109, 21);
     }
 
@@ -72,16 +69,14 @@
     }
 }
 
+
 *{
     box-sizing: border-box;
     margin: 0px;
 }
-:root{
-    --fonteCanvas: 'Walter Turncoat', cursive;
-}
 
 header > h1{
-    font-family: var(--fonteCanvas);
+    font-family: 'Walter Turncoat', cursive;
     color: white;
     font-size: 3em;
     text-align: center;
@@ -103,6 +98,7 @@ body{
 div#addWord > input{
     width:14em;
     margin: 10px;
+    background-color: white;
 }
 
 #begin{
@@ -113,3 +109,4 @@ div#addWord > input{
 .invisible{
     display: none;
 }
+

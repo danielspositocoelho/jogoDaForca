@@ -2,8 +2,8 @@ var inputNewWord = document.querySelector('#newWord');
 var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
 var guess = document.querySelector('.guess');
-var gameControls = document.querySelector('#gameStart')
-var confirmGuess = document.querySelector('#takeGuess')
+var gameControls = document.querySelector('#gameStart');
+var confirmGuess = document.querySelector('#takeGuess');
 function validateNewWord (newWord)
 {
     var validWord = true;
