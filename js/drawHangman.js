@@ -25,70 +25,88 @@ function drawHangman (){
     }
 }
 
+function animateLineDrawning(drawningCoordinates)
+{
+    giz.strokeStyle = 'white';
+   for(let frame = 1; frame < drawningCoordinates.length-1; frame++){
+        setTimeout(function(){
+            giz.beginPath();
+            giz.moveTo(drawningCoordinates[frame-1].x, drawningCoordinates[frame-1].y);
+            giz.lineTo(drawningCoordinates[frame].x, drawningCoordinates[frame].y);
+            giz.stroke();
+        },1800)
+   }
+}
+
+function animateCircleDrawning(drawningCoordinates,x,y)
+{
+    giz.strokeStyle = 'white';
+    for(let frame = 0; frame < drawningCoordinates.length; frame++){
+         setTimeout(function(){
+             giz.beginPath();
+             giz.arc(x,y,headRadius,drawningCoordinates[frame].x,drawningCoordinates[frame].y);
+             giz.stroke();
+         },2000)
+    }
+}
+//retornamos uma array com as coordenadas fornecidas parceladas em 100 coordenadas intermediarias, começando do ponto 0 e adicionando 1 centésimo da distancia para se chegar ao destino a cada parcela
+function calcWaypoints(coordinates){
+    var waypoints = [];
+    for (let i = 1; i < coordinates.length; i++)
+    {
+        let originPoint = coordinates[i-1];
+        let destinyPoint = coordinates[i];
+        let distanceX = destinyPoint.x - originPoint.x;
+        let distanceY = destinyPoint.y - originPoint.y;
+        for(let j = 0; j<= 100; j++){
+            let x = originPoint.x + distanceX * j/100; 
+            let y = originPoint.y + distanceY * j/100;
+            waypoints.push({x:x, y:y});
+        }
+    }
+    return(waypoints);
+}
+
 function drawHanger()
 {
-
-    giz.beginPath();
-    giz.moveTo(115, 580);
-    giz.lineTo(175, 580); // base
-    giz.lineTo(143.5, 545);//ponta do triangulo r -> l
-    giz.lineTo(115, 580);
-    giz.moveTo(143.5, 545);//ponta base
-    giz.lineTo(143.5,170);//haste vertical
-    giz.lineTo(400,170);//haste horizontal
-    giz.lineTo(400,250);//haste vertical descendente
-    giz.stroke();   
-    giz.closePath(); 
+    var hangerTriCoord = [{x:115,y:580},{x:175, y:580},{x:143.5, y:545},{x:115, y:580}];
+    animateLineDrawning(calcWaypoints(hangerTriCoord));
+    var hangerLineCoord = [{x:143.5, y:545}, {x:143.5 ,y:170},{x:400 ,y:170}, {x:400 ,y:250}];
+    animateLineDrawning(calcWaypoints(hangerLineCoord));
+   
 }
 
 function drawHead()
 {
-    giz.beginPath();
-    giz.arc(400, 275, headRadius, 0 , 2*Math.PI);
-    giz.stroke();
+    animateCircleDrawning(calcWaypoints([{x:0 , y:0},{x:0 , y:2*Math.PI}]),400,275);
 }
 
 function drawBody()
 {
-    giz.beginPath();
-    giz.moveTo(400, 300)
-    giz.lineTo(400, 445);
-    giz.closePath();
-    giz.stroke();
+    var bodyCoord = [{x:400, y:300},{x:400, y:445}]
+    animateLineDrawing(calcWaypoints(bodyCoord));
 }
 
 function drawLeftLeg()
 {
-    giz.beginPath();
-    giz.moveTo(400, 440)
-    giz.lineTo(350,505);
-    giz.closePath();
-    giz.stroke();
+    var leftLegCoord = [{x:400, y:440},{x:350, y:505}];
+    animateLineDrawing(calcWaypoints(leftLegCoord));
 }
 
 function drawRightLeg()
 {
-    giz.beginPath();
-    giz.moveTo(398, 440)
-    giz.lineTo(440,505);
-    giz.closePath();
-    giz.stroke();
+    var rightLegCoord = [{x:398, y:440},{x:440, y:505}];
+    animateLineDrawing(calcWaypoints(rightLegCoord));
 }
 
 function drawLeftArm()
 {
-    giz.beginPath();
-    giz.moveTo(400, 345)
-    giz.lineTo(485,300);
-    giz.closePath();
-    giz.stroke();
+    var leftArmCoord = [{x:400, y:345},{x:485, y:300}];
+    animateLineDrawing(calcWaypoints(leftArmCoord));
 }
 
 function drawRightArm()
 {
-    giz.beginPath();
-    giz.moveTo(400, 345)
-    giz.lineTo(315,295);
-    giz.closePath();
-    giz.stroke();
+    var rightArmCoord = [{x:400, y:345},{x:315, y:295}];
+    animateLineDrawing(calcWaypoints(rightArmCoord));
 }
