@@ -1,7 +1,9 @@
 var inputNewWord = document.querySelector('#newWord');
 var btnAddNewWord = document.querySelector('#addWord');
 var startGame = document.querySelector('#begin');
-var guess = document.querySelector('#guess');
+var guess = document.querySelector('.guess');
+var gameControls = document.querySelector('#gameStart')
+var confirmGuess = document.querySelector('#takeGuess')
 function validateNewWord (newWord)
 {
     var validWord = true;
@@ -92,13 +94,24 @@ startGame.addEventListener('click', function newGame (){
     tries.length = 0;
     guess.disabled = false;
     guess.value = '';
+    gameControls.classList.remove('invisible');
     word = genRandomWord(); // gerando palavra secreta aleatória
     drawWordGaps(word);
+
     guess.addEventListener('textInput', function(e){
 
         if (validateKey(e.data))
         {  
             checkGuess(e.data, word);
+        } //se não for valido não fazemos nada com o input
+    guess.value = '';
+    continueGame(word); // checando o fim do jogo  depois de ler a letra, caso já estiver acabado, não lemos o palpite, caso já tenha acabado, não aguardamos outro input
+    })
+
+    confirmGuess.addEventListener('click', function(){      //ADAPTAÇÃO PARA MOBILE - A FUNÇÃO ACIMA SÓ FUNCIONA EM AMBIENTE DESKTOP
+        if (validateKey(guess.value))
+        {  
+            checkGuess(guess.value, word);
         } //se não for valido não fazemos nada com o input
     guess.value = '';
     continueGame(word); // checando o fim do jogo  depois de ler a letra, caso já estiver acabado, não lemos o palpite, caso já tenha acabado, não aguardamos outro input

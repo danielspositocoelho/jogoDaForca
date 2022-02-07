@@ -12,16 +12,18 @@
         <h1>Jogo da Forca</h1>
     </header>
     <main>
-        <p></p>
-        <div id='gameStart'>
-            <input type="button" value="Iniciar Jogo" id='begin'> <br>
-            <label for="guessInput">Digite seu palpite:  </label><input type="text" name="guess" id="guess" maxlength="1"></label>
-        </div>
-        <div id="canvas">
-            <canvas id='gameArea' width='1200' height='800'></canvas>  <!--É necessario estabelecer o height e width fora do css, pois o css lida somente com o display. Para maniular os valores x y a referencia é do canvas.width e canvas.height-->
+        <input type="button" value="Iniciar Jogo" id='begin'> 
+        <div class="container">
+            <div id='gameStart' class="invisible">
+                <label for="guessInput">Digite seu palpite:  </label><input type="text" name="guess" class="guess" maxlength="1" ></label>
+                <input type="button" value="Confirmar" id='takeGuess' class="invisible">
+            </div>
+            <div id="canvas">
+                <canvas id='gameArea' width='1200' height='800'></canvas>
+            </div>
         </div>
         <div id="addWord">    
-            <input type="text" name="newWord" id="newWord" placeholder="Adicione uma nova palavra "> <br>
+            <input type="text" name="newWord" id="newWord" placeholder="Adicione uma nova palavra "> 
             <input type="button" value="Adicionar Palavra" id='addWord'>
         </div>
     </main>

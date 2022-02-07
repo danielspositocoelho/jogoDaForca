@@ -1,11 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@300&family=Turret+Road:wght@700&display=swap');
 
+@media only screen and (max-width:700px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px auto;
+        width:100%;
+    }
+    
+    canvas{
+        width:90vw;
+        height:40vh;
+        background-color: #497959;
+        font-family: var(--fonteCanvas);
+        border: ridge 10px rgb(204, 109, 21);
+    }
+
+    div#addWord{
+        margin-top: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #takeGuess{
+        display: inline;
+    }
+
+    div#gameStart{
+        margin-top: 2em;
+        margin-right: auto;
+        padding-left:25px;
+    }
+}
+
+@media only screen and (min-width:701px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px auto;
+        width:100%;
+    }
+    
+    canvas{
+        width:65vw;
+        height:50vh;
+        background-color: #497959;
+        font-family: var(--fonteCanvas);
+        border: ridge 10px rgb(204, 109, 21);
+    }
+
+    div#addWord{
+        margin-top: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #takeGuess{
+        display: none;
+    }
+
+    div#gameStart{
+        margin-top: 2em;
+        margin-right: auto;
+        padding-left:15em;
+    }
+}
+
 *{
     box-sizing: border-box;
     margin: 0px;
 }
 :root{
-    --fonteCanvas: 'Walter Turncoat';
+    --fonteCanvas: 'Walter Turncoat', cursive;
 }
 
 header > h1{
@@ -21,25 +93,23 @@ body{
     background-color: rgb(39, 38, 38);
     color: white;
 }
-main{
-    display: flex;
-    justify-content: space-around;
-}
 
-canvas{
-    width:65vw;
-    height:60vh;
-    background-color: #497959;
-    font-family: var(--fonteCanvas);
-    font-size: 50px;
-    border: ridge 10px rgb(204, 109, 21);
-}
-#guess{
+.guess{
     margin: 10px;
-    width:30px;
+    width:80px;
     background-color: white;
 }
+
 div#addWord > input{
     width:14em;
     margin: 10px;
+}
+
+#begin{
+    display: block;
+    margin: 20px auto;
+}
+
+.invisible{
+    display: none;
 }
