@@ -9,14 +9,15 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!--ADD LISTA COM PALAVRAS JÁ ADICIONADAS: use ol, escreva direto na tela, simlando giz-->
     <header>
         <h1>Jogo da Forca</h1>
     </header>
     <main>
-        <input type="button" value="Iniciar Jogo" id='begin'> 
+        <input type="button" value="Nova palavra" id='begin'> 
         <div class="container">
             <div id='gameStart' class="invisible">
-                <label for="guessInput">Digite seu palpite:  </label><input type="text" name="guess" class="guess" maxlength="1" ></label>
+                <input type="text" name="guess" placeholder='Digite seu palpite aqui' id='guessInput' class="guess" maxlength="1" >
                 <input type="button" value="Confirmar" id='takeGuess' class="invisible">
             </div>
             <div id="canvas">

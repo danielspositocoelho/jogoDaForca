@@ -3,7 +3,7 @@ const initialX = (10*gameArea.width)/100;
 const LINEWIDTH = 3;
 const LINEGAPS = 20;
 const lineSize = 60;
-const FONTWIDTH = 50;
+const FONTWIDTH = 60;
 const textMarginBottom = 10;  
 const ERROR_FONT = 'monospace';
 const POINT_FONT = 'Walter Turncoat';
@@ -71,6 +71,7 @@ function popWinMsg ()
 {
     giz.fillStyle = 'blue';
     giz.fillText('Você venceu. Parabéns!', gameArea.width/2, gameArea.height/4);
+    giz.fillText('Parabéns!', (gameArea.width/2)-50, (gameArea.height/4)+50);
     guess.disabled = true;
 }
 
@@ -79,6 +80,6 @@ function popLossMsg ()
     giz.fillStyle = 'red';
     giz.fillText('Não foi dessa vez.', gameArea.width/2, gameArea.height/4);
     giz.fillStyle = 'blue';
-    giz.fillText(`A palavra era '${word}'`, (gameArea.width/2)-50, (gameArea.height/4)+50);
+    giz.fillText(`Segredo:'${word}'`, (gameArea.width/2)-80, (gameArea.height/4)+70);
     guess.disabled = true;
 }

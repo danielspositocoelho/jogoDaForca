@@ -84,29 +84,29 @@ function drawHead()
 function drawBody()
 {
     var bodyCoord = [{x:400, y:300},{x:400, y:445}]
-    animateLineDrawing(calcWaypoints(bodyCoord));
+    animateLineDrawning(calcWaypoints(bodyCoord));
 }
 
 function drawLeftLeg()
 {
     var leftLegCoord = [{x:400, y:440},{x:350, y:505}];
-    animateLineDrawing(calcWaypoints(leftLegCoord));
+    animateLineDrawning(calcWaypoints(leftLegCoord));
 }
 
 function drawRightLeg()
 {
     var rightLegCoord = [{x:398, y:440},{x:440, y:505}];
-    animateLineDrawing(calcWaypoints(rightLegCoord));
+    animateLineDrawning(calcWaypoints(rightLegCoord));
 }
 
 function drawLeftArm()
 {
     var leftArmCoord = [{x:400, y:345},{x:485, y:300}];
-    animateLineDrawing(calcWaypoints(leftArmCoord));
+    animateLineDrawning(calcWaypoints(leftArmCoord));
 }
 
 function drawRightArm()
 {
     var rightArmCoord = [{x:400, y:345},{x:315, y:295}];
-    animateLineDrawing(calcWaypoints(rightArmCoord));
+    animateLineDrawning(calcWaypoints(rightArmCoord));
 }

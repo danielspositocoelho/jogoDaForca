@@ -15,7 +15,7 @@ function validateNewWord (newWord)
             break;
         }
     }
-    if(validWord)
+    if(validWord && newWord.length>0)
         return true;
     else
         return false;

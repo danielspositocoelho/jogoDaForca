@@ -1,60 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
 @media only screen and (max-width:700px) {
-    .container{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin: 0px auto;
-        width:100%;
-    }
-    
     canvas{
         width:90vw;
         height:40vh;
-        background-color: #497959;
-        border: ridge 10px rgb(204, 109, 21);
     }
 
     div#addWord{
-        margin-top: 1.5em;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+      justify-content: space-around;
     }
 
     #takeGuess{
         display: inline;
+        padding:2px;
+        margin-left:1em;
     }
 
     div#gameStart{
-        margin-top: 2em;
-        margin-right: auto;
         padding-left:25px;
     }
 }
 
 @media only screen and (min-width:701px) {
-    .container{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin: 0px auto;
-        width:100%;
-    }
-    
     canvas{
-        width:65vw;
-        height:50vh;
-        background-color: #497959;
-        border: ridge 10px rgb(204, 109, 21);
+        width:68vw;
+        height:55vh;
     }
 
     div#addWord{
-        margin-top: 1.5em;
-        display: flex;
-        align-items: center;
         justify-content: center;
     }
 
@@ -63,8 +37,6 @@
     }
 
     div#gameStart{
-        margin-top: 2em;
-        margin-right: auto;
         padding-left:15em;
     }
 }
@@ -74,6 +46,67 @@
     box-sizing: border-box;
     margin: 0px;
 }
+[type ='button']{
+    font-family: 'Walter Turncoat', cursive;
+    color: rgb(2, 2, 129);
+    background-color:rgb(231, 231, 200);
+    text-decoration: underline;
+    padding:0.4em ;
+    font-size:1em;
+    border: dashed 2px #000000;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius:15px 255px;
+}
+
+[type='button']:active{
+    padding: 0.45rem;
+}
+
+[type='text']{
+    background: transparent;
+    border: none ;
+    color:white;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 1.5em;
+}
+
+[type='text']:hover{
+    border: solid 0.1px white ;
+}
+
+#begin{
+    display: block;
+    margin: 20px auto;
+}
+
+div#gameStart{
+    margin: 0.8em;
+    margin-right: auto;
+    padding-left:25px;
+}
+div#addWord{
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+canvas{
+    background-color: #497959;
+    border: ridge 10px rgb(204, 109, 21);
+    box-shadow: 1px 3px 4px 1px  rgb(0, 0, 0);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    width:100%;
+}
 
 header > h1{
     font-family: 'Walter Turncoat', cursive;
@@ -81,29 +114,14 @@ header > h1{
     font-size: 3em;
     text-align: center;
 }
+
 header{
     margin-bottom: 50px;
 }
+
 body{
     background-color: rgb(39, 38, 38);
     color: white;
-}
-
-.guess{
-    margin: 10px;
-    width:80px;
-    background-color: white;
-}
-
-div#addWord > input{
-    width:14em;
-    margin: 10px;
-    background-color: white;
-}
-
-#begin{
-    display: block;
-    margin: 20px auto;
 }
 
 .invisible{
