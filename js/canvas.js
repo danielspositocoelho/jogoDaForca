@@ -7,7 +7,9 @@ const FONTWIDTH = 60;
 const textMarginBottom = 10;  
 const ERROR_FONT = 'monospace';
 const POINT_FONT = 'Walter Turncoat';
-
+var newLine = 0;
+var lineLimit = 5;    // número máximo de erros que cabem em linha na área reservada
+var errorsInLine = 1; // SE A FUNÇÃO markMistake FOR CHAMADA É PORQUE JÁ HÁ UM ERRO
 
 function drawWordGaps (word)
 {
@@ -28,8 +30,6 @@ function drawWordGaps (word)
     }
 }
 
-
-
 function revealLetter (letter,word)
 {
     giz.fillStyle = 'white';
@@ -46,9 +46,6 @@ function revealLetter (letter,word)
 }
 
 //FUNÇÃO QUE CONSTRÓI LISTA DE ERROS
-var newLine = 0;
-var lineLimit = 5;    // número máximo de erros que cabem em linha na área reservada
-var errorsInLine = 1; // SE A FUNÇÃO FOR CHAMADA É PORQUE JÁ HÁ UM ERRO
 function markMistake(wrongLetter)
 {    
     giz.fillStyle ='rgba(255, 15, 15, 0.808)';

@@ -1,5 +1,6 @@
 const hangmanColor = 'white';
 const headRadius = '25';
+
 function drawHangman (){
     
     giz.strokeStyle = `${hangmanColor}`;
